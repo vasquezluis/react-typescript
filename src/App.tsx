@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Form from "./components/Form";
 import List from "./components/List";
 
 // ? contrato que tiene que tener un objeto
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <h1>Midu subs</h1>
       <List subs={subs} />
+      <Form />
     </div>
   );
 }
