@@ -1,7 +1,14 @@
+import { Sub } from "../types";
+
 import { useState } from "react";
 
+// * para definir mas de un estado
+interface FormState {
+  inputValues: Sub;
+}
+
 const Form = () => {
-  const [inputValues, setinputValues] = useState({
+  const [inputValues, setinputValues] = useState<FormState["inputValues"]>({
     nick: "",
     subMonths: 0,
     avatar: "",

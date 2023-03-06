@@ -4,12 +4,7 @@ import Form from "./components/Form";
 import List from "./components/List";
 
 // ? contrato que tiene que tener un objeto
-interface Sub {
-  nick: string;
-  avatar: string;
-  subMonths: number;
-  description?: string;
-}
+import { Sub } from "./types";
 
 // ? contrato para los estados de la aplicacion
 interface AppState {

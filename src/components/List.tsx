@@ -1,11 +1,8 @@
+import { Sub } from "../types";
+
 // interface de las props
 interface Props {
-  subs: Array<{
-    nick: string;
-    avatar: string;
-    subMonths: number;
-    description?: string;
-  }>;
+  subs: Array<Sub>;
 }
 
 function List({ subs }: Props) {
