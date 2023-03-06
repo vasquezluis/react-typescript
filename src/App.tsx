@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Form from "./components/Form";
@@ -20,8 +21,14 @@ function App() {
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // const fetchSubs = (): Promise<SubsResponseFromAPI> => {
+    //   return fetch("http://localhost:3000/subs").then((subs) => subs.json()) }
+
+    // ? con axios
     const fetchSubs = (): Promise<SubsResponseFromAPI> => {
-      return fetch("http://localhost:3000/subs").then((subs) => subs.json());
+      return axios
+        .get("http://localhost:3000/subs")
+        .then((response) => response.data);
     };
 
     // ? transformar los datos de la api a datos que entiende la aplicacion
