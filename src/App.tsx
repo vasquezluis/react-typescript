@@ -35,11 +35,15 @@ function App() {
     setSubs(INITIAL_STATE);
   }, []);
 
+  const handleNewSub = (newSub: Sub): void => {
+    setSubs((subs) => [...subs, newSub]);
+  };
+
   return (
     <div className="App">
       <h1>Midu subs</h1>
       <List subs={subs} />
-      <Form />
+      <Form onNewSub={handleNewSub} />
     </div>
   );
 }

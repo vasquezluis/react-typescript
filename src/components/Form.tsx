@@ -1,13 +1,17 @@
-import { Sub } from "../types";
-
 import { useState } from "react";
+
+import { Sub } from "../types";
 
 // * para definir mas de un estado
 interface FormState {
   inputValues: Sub;
 }
 
-const Form = () => {
+interface FormProps {
+  onNewSub: (newSub: Sub) => void;
+}
+
+const Form = ({ onNewSub }: FormProps) => {
   const [inputValues, setinputValues] = useState<FormState["inputValues"]>({
     nick: "",
     subMonths: 0,
@@ -15,7 +19,11 @@ const Form = () => {
     description: "",
   });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+
+    onNewSub(inputValues);
+  };
 
   // ? decirle el tipo de event, porque no sabe el contexto
   const handleChange = (
