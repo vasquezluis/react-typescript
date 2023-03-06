@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import List from "./components/List";
@@ -30,6 +30,8 @@ function App() {
   const [subs, setSubs] = useState<AppState["subs"]>([]);
   const [newSubsNumber, setNewSubsNumber] =
     useState<AppState["newSubsNumner"]>(0);
+  // ? useRef debe tener un valor inicial
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setSubs(INITIAL_STATE);
@@ -40,7 +42,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" ref={divRef}>
       <h1>Midu subs</h1>
       <List subs={subs} />
       <Form onNewSub={handleNewSub} />
